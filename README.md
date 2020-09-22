@@ -30,7 +30,9 @@ conda deactivate
 
 ## Project overview
 
-User ROOT files produced with [FCCSW](https://github.com/HEP-FCC/FCCSW) can be placed in the `data/` directory in the main project folder. Python code to perform specific tasks is housed in `python/`, and example scripts for running analysis can be found in `examples/`. Plots produced with `matplotlib` are stored in the `output/plots` folder, and LaTeX tables in the `output/tables` folder. Users can store analysis results in dictionaries and persist them to `.json` files, and write the output to the `output/json` folder. Shortcuts for these various locations are defined in the `fcc_python_tools/locations.py` script. Here, users can change the default data directory and output locations if desired, and also add additional shortucts. These shortcuts are accessed with:
+User ROOT files produced with [FCCSW](https://github.com/HEP-FCC/FCCSW) can be placed in the `data/` directory in the main project folder. Python code to perform specific tasks is housed in `python/`, and example scripts for running analysis can be found in `examples/`. Plots produced with `matplotlib` are stored in the `output/plots` folder, and LaTeX tables in the `output/tables` folder. Users can store analysis results in dictionaries and persist them to `.json` files, and write the output to the `output/json` folder.
+
+Shortcuts for these various locations are defined in the `fcc_python_tools/locations.py` script. Here, users can change the default data directory and output locations if desired, and also add additional shortucts. These shortcuts are accessed with:
 
 ```
 from fcc_python_tools.locations import loc
