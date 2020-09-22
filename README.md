@@ -30,8 +30,13 @@ conda deactivate
 
 ## Project overview
 
-In the `setup.sh` script, several environment variables are defined which can be added to by the user. `ROOT` files produced by [FCCSW](https://github.com/HEP-FCC/FCCSW) can be placed in `DATA` for example, and python code for performing specific tasks is placed in
-`PYTHON`. Example `iPython` notebooks are in `EXAMPLES`. Any `matplotlib` plots produced are saved in `PLOTS`, with LaTeX tables stored in `.tex` format in `TABLES`. Analysis results can be stored int dictionaries and written to `.json` files for subsequent use - these files are placed in `JSON`.
+User ROOT files produced with [FCCSW](https://github.com/HEP-FCC/FCCSW) can be placed in the `data/` directory in the main project folder. Python code to perform specific tasks is housed in `python/`, and example scripts for running analysis can be found in `examples/`. Plots produced with `matplotlib` are stored in the `output/plots` folder, and LaTeX tables in the `output/tables` folder. Users can store analysis results in dictionaries and persist them to `.json` files, and write the output to the `output/json` folder. Shortcuts for these various locations are defined in the `python/locations.py` script. Here, users can change the default data directory and output locations if desired, and also add additional shortucts. These shortcuts are accessed with:
+
+```
+from fcc_python_tools.locations import loc
+```
+
+where `loc.ROOT` for example provides the home directory of the project.
 
 This project is intended as an example analysis framework, to demonstrate how to load and analyse FCC simulation data and produce some useful output. Users are free to extend the code by adding their own functions to `PYTHON` and writing their own dedicated analysis scripts.
 

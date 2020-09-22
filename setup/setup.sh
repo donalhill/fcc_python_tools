@@ -13,11 +13,3 @@ conda activate fcc_pyenv
 cd $ANAROOT
 
 export PYTHONPATH=$ANAROOT:$ANAROOT/python:$PYTHONPATH
-
-# Locations
-export DATA=$ANAROOT/data
-export PYTHON=$ANAROOT/python
-export EXAMPLES=$ANAROOT/examples
-export PLOTS=$ANAROOT/output/plots
-export TABLES=$ANAROOT/output/tables
-export JSON=$ANAROOT/output/json
