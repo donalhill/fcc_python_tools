@@ -51,3 +51,5 @@ Example Jupyter notebooks are provided in the `examples` directory. You can laun
 jupyter notebook
 ```
 from the main project folder. This will open a file browser for the project. You can navigate to the `examples` folder, and click on `combine_particles.ipynb` for example to launch the example for particle combination.
+
+You can also navigate to the `examples` folder on GitHub, and click on one of the notebooks. This will load the notebook and execute it in your browser, showing the results.
