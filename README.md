@@ -1,6 +1,6 @@
 # FCC python tools
 
-This repository hosts code that uses `uproot`, `awkward array`, and other code python packages to load and analyse FCC simulation.
+This repository hosts code that uses `uproot`, `awkward array`, and other core python packages to load and analyse FCC simulation.
 
 ## Setting up
 
