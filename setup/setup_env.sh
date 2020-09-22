@@ -6,5 +6,7 @@ conda create -n fcc_pyenv python=3.7 root -c conda-forge
 conda activate fcc_pyenv
 conda config --env --add channels conda-forge
 #Install required packages
-conda install -y uncertainties matplotlib pandas
+conda install -y uncertainties matplotlib pandas jupyter ipykernel
 pip install uproot4 awkward1
+#Enable our conda env for use in the Jupyter notebooks
+python -m ipykernel install --user --name=fcc_pyenv

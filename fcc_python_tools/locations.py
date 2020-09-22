@@ -3,7 +3,7 @@ repo = os.getenv('ANAROOT')
 
 class loc : pass
 loc.ROOT = repo+'/'
-loc.OUT = repo+'output/'
+loc.OUT = loc.ROOT+'output/'
 loc.DATA = loc.ROOT+'data'
 loc.PLOTS = loc.OUT+'plots'
 loc.TABLES = loc.OUT+'tables'
