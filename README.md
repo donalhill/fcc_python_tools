@@ -40,7 +40,7 @@ from fcc_python_tools.locations import loc
 
 where `loc.ROOT` for example provides the home directory of the project.
 
-This project is intended as an example analysis framework, to demonstrate how to load and analyse FCC simulation data and produce some useful output. Users are free to extend the code by adding their own functions to `PYTHON` and writing their own dedicated analysis scripts.
+This project is intended as an example analysis framework, to demonstrate how to load and analyse FCC simulation data and produce some useful output. Users are free to extend the code by adding their own functions into the  `fcc_python_tools` folder and writing their own dedicated analysis scripts.
 
 ## uproot and awkward array
 
