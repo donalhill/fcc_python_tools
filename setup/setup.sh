@@ -20,4 +20,4 @@ export PYTHON=$ANAROOT/python
 export EXAMPLES=$ANAROOT/examples
 export PLOTS=$ANAROOT/output/plots
 export TABLES=$ANAROOT/output/tables
-export JSON=$ANAROOT/output/tables
+export JSON=$ANAROOT/output/json
