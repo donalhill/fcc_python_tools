@@ -33,11 +33,9 @@ conda deactivate
 User ROOT files produced with [FCCSW](https://github.com/HEP-FCC/FCCSW) can be placed in the `data/` directory in the main project folder. Python code to perform specific tasks is housed in `python/`, and example scripts for running analysis can be found in `examples/`. Plots produced with `matplotlib` are stored in the `output/plots` folder, and LaTeX tables in the `output/tables` folder. Users can store analysis results in dictionaries and persist them to `.json` files, and write the output to the `output/json` folder.
 
 Shortcuts for these various locations are defined in the `fcc_python_tools/locations.py` script. Here, users can change the default data directory and output locations if desired, and also add additional shortucts. These shortcuts are accessed with:
-
 ```
 from fcc_python_tools.locations import loc
 ```
-
 where `loc.ROOT` for example provides the home directory of the project.
 
 This project is intended as an example analysis framework, to demonstrate how to load and analyse FCC simulation data and produce some useful output. Users are free to extend the code by adding their own functions into the  `fcc_python_tools` folder and writing their own dedicated analysis scripts.
@@ -45,3 +43,11 @@ This project is intended as an example analysis framework, to demonstrate how to
 ## uproot and awkward array
 
 Generated events produced in [FCCSW](https://github.com/HEP-FCC/FCCSW) are stored in `ROOT` files. In this project, these files are loaded using the [uproot](https://github.com/scikit-hep/uproot4) package, which provides fast, `ROOT`-independent file loading into python. The events are handled using [awkward array](https://github.com/scikit-hep/awkward-1.0), which provides `numpy`-like access to jagged data (different numbers of particles in each event). This enables analysis at array-level, where all events are analysed with a single command without the use of loops.
+
+## Example notebooks
+
+Example Jupyter notebooks are provided in the `examples` directory. You can launch Jupyter by doing:
+```
+jupyter notebook
+```
+from the main project folder. This will open a file browser for the project. You can navigate to the `examples` folder, and click on `combine_particles.ipynb` for example to launch the example for particle combination.
