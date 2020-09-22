@@ -30,9 +30,10 @@ conda deactivate
 
 ## Project overview
 
-In the `setup.sh` script, several environment variables are defined which can be added to by the user. `ROOT` files produced by [FCCSW](https://github.com/HEP-FCC/FCCSW) can be placed in `DATA` for example, and analysis scripts placed in `SCRIPTS`. Any `matplotlib` plots produced are saved in `PLOTS`, with LaTeX tables stored in `.tex` format in `TABLES`. Analysis results can be stored int dictionaries and written to `.json` files for subsequent use - these files are placed in `JSON`.
+In the `setup.sh` script, several environment variables are defined which can be added to by the user. `ROOT` files produced by [FCCSW](https://github.com/HEP-FCC/FCCSW) can be placed in `DATA` for example, and python code for performing specific tasks is placed in
+`PYTHON`. Example `iPython` notebooks are in `EXAMPLES`. Any `matplotlib` plots produced are saved in `PLOTS`, with LaTeX tables stored in `.tex` format in `TABLES`. Analysis results can be stored int dictionaries and written to `.json` files for subsequent use - these files are placed in `JSON`.
 
-This project is intended as an example analysis framework, to demonstrate how to load and analyse FCC simulation data and produce some useful output. Users are free to extend the code by adding their own analysis scripts.
+This project is intended as an example analysis framework, to demonstrate how to load and analyse FCC simulation data and produce some useful output. Users are free to extend the code by adding their own functions to `PYTHON` and writing their own dedicated analysis scripts.
 
 ## uproot and awkward array
 
