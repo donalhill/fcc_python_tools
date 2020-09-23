@@ -25,3 +25,15 @@ def mass_2body(left, right, left_mass, right_mass):
             (left['p4.px'] + right['p4.px'])**2 -
             (left['p4.py'] + right['p4.py'])**2 -
             (left['p4.pz'] + right['p4.pz'])**2))
+
+# Cosine of angle between two particles
+def cos_angle(left, right):
+    left_px_mag = left['p4.px'] / left['p4.p']
+    left_py_mag = left['p4.py'] / left['p4.p']
+    left_pz_mag = left['p4.pz'] / left['p4.p']
+
+    right_px_mag = right['p4.px'] / right['p4.p']
+    right_py_mag = right['p4.py'] / right['p4.p']
+    right_pz_mag = right['p4.pz'] / right['p4.p']
+
+    return left_px_mag*right_px_mag + left_py_mag*right_py_mag + left_pz_mag*right_pz_mag
