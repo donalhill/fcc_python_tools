@@ -23,3 +23,15 @@ def errorbar_hist(P,var,P_name,title,low,high):
     plt.tight_layout()
     plt.show()
     fig.savefig(f"{loc.PLOTS}/{P_name}_{var}.pdf")
+
+def errorbar_plot(x_vals, y_vals, x_name, y_name, x_title, y_title, x_range, y_range, x_err=None, y_err=None):
+    fig, ax = plt.subplots(figsize=(8,8))
+    plt.errorbar(x_vals, y_vals, xerr=x_err, yerr=y_err, fmt='o', color='k')
+    plt.xlabel(x_title,fontsize=30)
+    plt.xlim(x_range[0],x_range[1])
+    plt.ylabel(y_title,fontsize=30)
+    plt.ylim(y_range[0],y_range[1])
+    ax.tick_params(axis='both', which='major', labelsize=25)
+    plt.tight_layout()
+    plt.show()
+    fig.savefig(f"{loc.PLOTS}/{x_name}_vs_{y_name}.pdf")
