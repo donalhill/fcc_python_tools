@@ -3,11 +3,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import awkward1 as ak
 
-def errorbar_hist(P,var,P_name,title,low,high):
+def errorbar_hist(P,var,P_name,title,low,high,bins):
     fig, ax = plt.subplots(figsize=(8,8))
     #Number of events, use this to determine bins and thus bin width
     n = np.sum(ak.num(P))
-    bins = int(np.sqrt(n))
     bin_w = (high - low)/bins
 
     counts, bin_edges = np.histogram(ak.to_list(ak.flatten(P[var])), bins, range=(low,high))
