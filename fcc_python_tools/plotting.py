@@ -2,8 +2,9 @@ from fcc_python_tools.locations import loc
 import matplotlib.pyplot as plt
 import numpy as np
 import awkward1 as ak
+import matplotlib as mpl
 
-def errorbar_hist(P,var,P_name,title,low,high,bins):
+def errorbar_hist(P,var,P_name,title,units,low,high,bins):
     fig, ax = plt.subplots(figsize=(8,8))
     #Number of events, use this to determine bins and thus bin width
     n = np.sum(ak.num(P))
@@ -13,8 +14,8 @@ def errorbar_hist(P,var,P_name,title,low,high,bins):
     bin_centres = (bin_edges[:-1] + bin_edges[1:])/2.
     err = np.sqrt(counts)
     plt.errorbar(bin_centres, counts, yerr=err, fmt='o', color='k')
-    plt.xlabel(title,fontsize=30)
-    plt.ylabel("Candidates / (%.4f GeV/$c^2$)" % bin_w,fontsize=30)
+    plt.xlabel(f"{title} [{units}]",fontsize=30)
+    plt.ylabel("Candidates / (%.4f %s)" % (bin_w, units), fontsize=30)
     plt.xlim(low,high)
     ax.tick_params(axis='both', which='major', labelsize=25)
     ymin, ymax = plt.ylim()
@@ -47,9 +48,13 @@ def hist_plot(X,X_name,title,low,high,bins):
     plt.show()
     fig.savefig(f"{loc.PLOTS}/{X_name}.pdf")
 
-def hist_plot_2d(X,X_name,X_title,Y,Y_name,Y_title,X_low,X_high,Y_low,Y_high,X_bins,Y_bins):
+def hist_plot_2d(X,X_name,X_title,Y,Y_name,Y_title,X_low,X_high,Y_low,Y_high,X_bins,Y_bins,log):
     fig, ax = plt.subplots(figsize=(8,8))
-    plt.hist2d(X.tolist(),Y.tolist(),bins=[X_bins,Y_bins])
+    if(log==True):
+        norm_opt = mpl.colors.LogNorm()
+    else:
+        norm_opt = mpl.colors.Normalize()
+    plt.hist2d(X.tolist(),Y.tolist(),bins=[X_bins,Y_bins],range=[[X_low, X_high], [Y_low, Y_high]], norm=norm_opt)
     plt.xlabel(X_title,fontsize=30)
     plt.xlim(X_low,X_high)
     plt.ylabel(Y_title,fontsize=30)
