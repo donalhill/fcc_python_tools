@@ -6,8 +6,8 @@ shopt -s expand_aliases
 export ANAROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
 
 set +u
-
-source ~/miniconda/etc/profile.d/conda.sh
+conda_path=/afs/cern.ch/work/d/dhill
+source $conda_path/miniconda/etc/profile.d/conda.sh
 conda activate fcc_pyenv
 
 cd $ANAROOT

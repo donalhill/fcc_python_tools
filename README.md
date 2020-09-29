@@ -54,13 +54,13 @@ to launch Jupyter in your local browser. You can then run notebooks from there. 
 
 ### Running from lxplus
 
-A few steps are required in order to launch the notebook on lxplus, but view it using your local borwser. From inside the main project folder, do:
+A few steps are required in order to launch the notebook on lxplus but view it using your local borwser. From inside the main project folder, do:
 ```
 jupyter notebook --no-browser --port=5679
 ```
 Then in a terminal on your local machine, do:
 ```
-ssh -N -f -L localhost:5678:localhost:5679 dhill@lxplusXXX.cern.ch
+ssh -N -f -L localhost:5678:localhost:5679 your_username@lxplusXXX.cern.ch
 ```
 making sure to point to the exact machine number `XXX` on lxplus. Then paste the following into your browser:
 ```
@@ -75,5 +75,5 @@ jupyter notebook --no-browser --port=5679
 [I 12:48:13.608 NotebookApp] http://localhost:5679/?token=29366eba39c32878ea4553fd8d19835e16d217b5e008ce7e
 [I 12:48:13.608 NotebookApp]  or http://127.0.0.1:5679/?token=29366eba39c32878ea4553fd8d19835e16d217b5e008ce7e
 ```
-where you can see the token in the fifth line here.
+where you can see the token in the fifth line here. Paste this token into the box in your browser, and you will gain access to the Jupyter session.
 
