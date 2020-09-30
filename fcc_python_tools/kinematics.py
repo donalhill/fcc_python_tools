@@ -36,6 +36,17 @@ def mass_3body(a, b, c, a_mass, b_mass, c_mass):
             (a['p4.py'] + b['p4.py'] + c['p4.py'])**2 -
             (a['p4.pz'] + b['p4.pz'] + c['p4.pz'])**2))
 
+#Invariant mass of 4 particles
+def mass_4body(a, b, c, d, a_mass, b_mass, c_mass, d_mass):
+    a_energy = np.sqrt(a['p4.p']**2 + a_mass**2)
+    b_energy = np.sqrt(b['p4.p']**2 + b_mass**2)
+    c_energy = np.sqrt(c['p4.p']**2 + c_mass**2)
+    d_energy = np.sqrt(d['p4.p']**2 + d_mass**2)
+    return np.sqrt(((a_energy + b_energy + c_energy + d_energy)**2 -
+            (a['p4.px'] + b['p4.px'] + c['p4.px'] + d['p4.px'])**2 -
+            (a['p4.py'] + b['p4.py'] + c['p4.py'] + d['p4.py'])**2 -
+            (a['p4.pz'] + b['p4.pz'] + c['p4.pz'] + d['p4.pz'])**2))
+
 # Cosine of angle between two particles
 def cos_angle(left, right):
     left_px_mag = left['p4.px'] / left['p4.p']
