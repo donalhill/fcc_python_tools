@@ -22,7 +22,13 @@ https://github.com/donalrinho/fcc_python_tools.git
 ```
 This will place `fcc_python_tools` into `/eos/user/j/jbloggs/SWAN_projects/fcc_python_tools`.
 
+### Important step
 
+Once you have downloaded `fcc_python_tools`, you need to reconfigure `Swan` to source the `fcc_python_tools/setup/setup.sh` script. This script adds the `fcc_python_tools` module to `PYTHONPATH`, and makes the base directory of the project (`ANAROOT`) known. To do this, click the three dots in the top right of your `Swan` browser window. Select the `Change configuration` option. This will let you redefine your `Swan` session login, where you can specify the path the the setup script in the `Environment script` box. Type the following into this box:
+```
+$CERNBOX_HOME/SWAN_projects/fcc_python_tools/setup/setup.sh
+```
+to point to the setup script in your copy of `fcc_python_tools`.
 
 ## Project overview
 
