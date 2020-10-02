@@ -13,6 +13,11 @@ def calc_pt(array, container):
 def calc_eta(array, container):
     return np.arcsinh(array[container,'p4.pz'] / calc_pt(array, container))
 
+#Theta
+def calc_theta(array, container):
+    eta = calc_eta(array,container)
+    return 2 * np.arctan(np.exp(-eta))
+
 #Phi
 def calc_phi(array, container):
     return np.arccos(array[container,'p4.px'] / calc_pt(array, container))
