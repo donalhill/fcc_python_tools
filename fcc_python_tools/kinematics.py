@@ -22,35 +22,23 @@ def calc_theta(array, container):
 def calc_phi(array, container):
     return np.arccos(array[container,'p4.px'] / calc_pt(array, container))
 
-#Invariant mass of 2 particles
-def mass_2body(left, right, left_mass, right_mass):
-    left_energy = np.sqrt(left['p4.p']**2 + left_mass**2)
-    right_energy = np.sqrt(right['p4.p']**2 + right_mass**2)
-    return np.sqrt(((left_energy + right_energy)**2 -
-            (left['p4.px'] + right['p4.px'])**2 -
-            (left['p4.py'] + right['p4.py'])**2 -
-            (left['p4.pz'] + right['p4.pz'])**2))
+#Invariant mass for a list of particles, given a list of corresponding rest masses for each particle
+def mass(particles, masses):
+    for i in range(0,len(particles)):
+        particles[i]['p4.e'] = np.sqrt(particles[i]['p4.p']**2 + masses[i]**2)
 
-#Invariant mass of 3 particles
-def mass_3body(a, b, c, a_mass, b_mass, c_mass):
-    a_energy = np.sqrt(a['p4.p']**2 + a_mass**2)
-    b_energy = np.sqrt(b['p4.p']**2 + b_mass**2)
-    c_energy = np.sqrt(c['p4.p']**2 + c_mass**2)
-    return np.sqrt(((a_energy + b_energy + c_energy)**2 -
-            (a['p4.px'] + b['p4.px'] + c['p4.px'])**2 -
-            (a['p4.py'] + b['p4.py'] + c['p4.py'])**2 -
-            (a['p4.pz'] + b['p4.pz'] + c['p4.pz'])**2))
+    tot_energy = particles[0]['p4.e']
+    tot_px = particles[0]['p4.px']
+    tot_py = particles[0]['p4.py']
+    tot_pz = particles[0]['p4.pz']
 
-#Invariant mass of 4 particles
-def mass_4body(a, b, c, d, a_mass, b_mass, c_mass, d_mass):
-    a_energy = np.sqrt(a['p4.p']**2 + a_mass**2)
-    b_energy = np.sqrt(b['p4.p']**2 + b_mass**2)
-    c_energy = np.sqrt(c['p4.p']**2 + c_mass**2)
-    d_energy = np.sqrt(d['p4.p']**2 + d_mass**2)
-    return np.sqrt(((a_energy + b_energy + c_energy + d_energy)**2 -
-            (a['p4.px'] + b['p4.px'] + c['p4.px'] + d['p4.px'])**2 -
-            (a['p4.py'] + b['p4.py'] + c['p4.py'] + d['p4.py'])**2 -
-            (a['p4.pz'] + b['p4.pz'] + c['p4.pz'] + d['p4.pz'])**2))
+    for i in range(1,len(particles)):
+        tot_energy = tot_energy + particles[i]['p4.e']
+        tot_px = tot_px + particles[i]['p4.px']
+        tot_py = tot_py + particles[i]['p4.py']
+        tot_pz = tot_pz + particles[i]['p4.pz']
+
+    return np.sqrt(tot_energy**2 - tot_px**2 - tot_py**2 - tot_pz**2)
 
 # Cosine of angle between two particles
 def cos_angle(left, right):
