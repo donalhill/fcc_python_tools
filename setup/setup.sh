@@ -9,4 +9,7 @@ set +u
 
 cd $ANAROOT
 
-export PYTHONPATH=$ANAROOT:$PYTHONPATH
+user=$USER
+userfirst=${user:0:1}
+export PATH=/eos/user/$userfirst/$user/.local/bin:$PATH
+export PYTHONPATH=$HOME/.local/lib/python3.7/site-packages:$ANAROOT:$PYTHONPATH
