@@ -60,7 +60,7 @@ A summary of exclusive decay modes generated via EvtGen is provided here.
 
 | Decay mode | DecFile name | Z decay | Events required |
 | -----------|--------------|---------|----------------|
-| B+ -> (D0 -> K+ pi-) pi+ | Bu2D0Pi.dec | bb | 233k |
+| B+ -> (D0 -> K+ pi-) pi+ | Bu2D0Pi.dec | bb | 250k |
 | B0 -> (K*0 -> K- pi+) tau+ tau-, tau -> 3pi nu | Bd2KstTauTau.dec | bb | 250k |
 | B0 -> mu mu | Bd2MuMu.dec | bb | 250k |
 | B0 -> (D*- -> (D0b -> K+ pi-) pi-) tau+ nu, tau -> 3pi nu | Bd2DstTauNu.dec | bb | 250k |
