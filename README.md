@@ -53,3 +53,24 @@ Example Jupyter notebooks are provided in the `examples` directory. If you are w
 jupyter notebook
 ```
 to launch Jupyter in your local browser. You can then run notebooks from there and point to files on your own machine. However, the example notebooks provided use files stored on `EOS`. To access these files, you should use `Swan` as described above.
+
+## Exclusive decay modes generated with EvtGen
+
+A summary of exclusive decay modes generated via EvtGen is provided here. 
+
+| Decay mode | DecFile name | Z decay | Events required |
+| -----------|--------------|---------|----------------|
+| B+ -> (D0 -> K+ pi-) pi+ | Bu2D0Pi.dec | bb | 250k |
+| B0 -> (K*0 -> K- pi+) tau+ tau-, tau -> 3pi nu | Bd2KstTauTau.dec | bb | 250k |
+| B0 -> mu mu | Bd2MuMu.dec | bb | 250k |
+| B0 -> (D*- -> (D0b -> K+ pi-) pi-) tau+ nu, tau -> 3pi nu | Bd2DstTauNu.dec | bb | 250k |
+| B0 -> (D- -> K+ pi- pi-) tau+ nu, tau -> 3pi nu | Bd2DTauNu.dec | bb | 250k |
+| B0 -> (K*0 -> K- pi+) e+ e- | Bd2KstEE.dec | bb | 250k |
+| B0 -> (K*0 -> K- pi+) nu nu | BdKstNuNu.dec | bb | 250k |
+| B0 -> (Ks0 -> pi pi) pi0 | Bd2KsPi0.dec | bb | 250k |
+| Bs0 -> (phi -> K+ K-) gamma | Bs2PhiGamma.dec | bb | 1M |
+| Bs0 -> tau+ tau-, tau -> 3pi nu | Bs2TauTau.dec | bb | 1M |
+| Bc+ -> tau+ nu, tau -> 3pi nu | Bc2TauNu.dec | bb | 25M |
+| tau -> 3mu | Tau2MuMuMu.dec | tautau | 100k |
+| tau -> mu gamma | Tau2MuGamma.dec | tautau | 100k |
+| D+ -> pi+ pi0 | D2PiPi0.dec | cc | 250k |
