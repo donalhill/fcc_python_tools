@@ -8,3 +8,4 @@ loc.DATA = loc.ROOT+'data'
 loc.PLOTS = loc.OUT+'plots'
 loc.TABLES = loc.OUT+'tables'
 loc.JSON = loc.OUT+'json'
+loc.FLAT = "/eos/experiment/fcc/ee/tmp/flatntuples/Z_Zbb_Flavor"
