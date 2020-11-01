@@ -1,0 +1,162 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Welcome to JupyROOT 6.20/06\n"
+     ]
+    }
+   ],
+   "source": [
+    "import sys,os\n",
+    "import uproot4 as uproot\n",
+    "import awkward1 as ak\n",
+    "import json\n",
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "from fcc_python_tools.locations import loc\n",
+    "from fcc_python_tools import kinematics_flat\n",
+    "from particle import literals as lp\n",
+    "from fcc_python_tools import plotting\n",
+    "import tensorflow as tf\n",
+    "import zfit\n",
+    "import random\n",
+    "import ROOT\n",
+    "\n",
+    "from matplotlib import rc\n",
+    "rc('font',**{'family':'serif','serif':['Roman']})\n",
+    "rc('text', usetex=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "path = loc.FLAT + '/p8_ee_Zbb_ecm91_EvtGen_Bu2D0Pi.root'\n",
+    "file = uproot.open(path)\n",
+    "tree = file['events']\n",
+    "\n",
+    "events = tree.arrays(library=\"ak\", how=\"zip\")\n",
+    "\n",
+    "\n",
+    "n_events\n",
+    "\n",
+    "#Container for the reco particles\n",
+    "p_c = 'rec_part'\n",
+    "p = events[p_c]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "p[\"p\"] = kinematics_flat.calc_p(p)\n",
+    "p_cut = p[\"p\"] > 1.\n",
+    "p = p[p_cut]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "pi_cut = abs(p[\"mass\"] - lp.pi_plus.mass/1000.) < 1e-4\n",
+    "pi = p[pi_cut]\n",
+    "\n",
+    "k_cut = abs(p[\"mass\"] - lp.K_plus.mass/1000.) < 1e-4\n",
+    "k = p[k_cut]\n",
+    "\n",
+    "D = ak.cartesian({\"k\": k, \"pi\": pi})\n",
+    "D_cut = np.sign(D[\"k\",\"charge\"]) != np.sign(D[\"pi\",\"charge\"])\n",
+    "D = D[D_cut]\n",
+    "\n",
+    "PDG_K_m = lp.K_plus.mass/1000.\n",
+    "PDG_pi_m = lp.pi_plus.mass/1000.\n",
+    "D[\"mass\"] = kinematics_flat.mass([D[\"k\"], D[\"pi\"]], [PDG_K_m, PDG_pi_m])\n",
+    "\n",
+    "PDG_D_m = lp.D_0.mass/1000.\n",
+    "D_window = 0.05\n",
+    "D_cut = abs(D[\"mass\"] - PDG_D_m) < D_window\n",
+    "D = D[D_cut]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "B = ak.cartesian({\"D_k\": D[\"k\"], \"D_pi\": D[\"pi\"], \"pi\": pi})\n",
+    "B_cut = np.sign(B[\"D_k\",\"charge\"]) == np.sign(B[\"pi\",\"charge\"])\n",
+    "B = B[B_cut]\n",
+    "B[\"mass\"] = kinematics_flat.mass([B[\"D_k\"], B[\"D_pi\"], B[\"pi\"]], [PDG_K_m, PDG_pi_m, PDG_pi_m])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "low = 5.22\n",
+    "high = 5.34\n",
+    "B_cut = np.logical_and(B[\"mass\"] > low, B[\"mass\"] < high)\n",
+    "B = B[B_cut]\n",
+    "\n",
+    "plotting.errorbar_hist(B,\"mass\",\"B\",\"$m([K^\\pm \\pi^\\mp]_D \\pi^\\pm)$\",\"GeV/$c^2$\",low,high,100)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
