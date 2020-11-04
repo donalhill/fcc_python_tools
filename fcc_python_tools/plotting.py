@@ -6,8 +6,6 @@ import matplotlib as mpl
 
 def errorbar_hist(P,var,P_name,title,units,low,high,bins):
     fig, ax = plt.subplots(figsize=(8,8))
-    #Number of events, use this to determine bins and thus bin width
-    n = np.sum(ak.num(P).tolist())
     bin_w = (high - low)/bins
 
     counts, bin_edges = np.histogram(ak.to_list(ak.flatten(P[var])), bins, range=(low,high))
