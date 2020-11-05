@@ -1,4 +1,4 @@
-# Tauola steering options 
+# Tauola steering options
 Define TauolaCurrentOption 0
 Define TauolaBR1 1.0
 #
@@ -28,7 +28,7 @@ Enddecay
 CDecay anti-MyD0
 #
 Decay MyTau-
-  1.00        TAUOLA 5;
+  1.00        TAUHADNU -0.108 0.775 0.149 1.364 0.400 1.23 0.4;
 Enddecay
 CDecay MyTau+
 #
