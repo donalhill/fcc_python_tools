@@ -1,0 +1,81 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Bu: 3.9e+11\n",
+      "Bd: 3.9e+11\n",
+      "Bu: 8.9e+10\n",
+      "Bc: 3.6e+08\n",
+      "Bu: 2.0e+11\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Total Z produced\n",
+    "tot_Z = 3e12\n",
+    "\n",
+    "#Z branching fractions\n",
+    "Z_bb = 0.1512\n",
+    "Z_cc = 0.1203\n",
+    "Z_tautau = 0.0337\n",
+    "\n",
+    "#Hadronisation fractions\n",
+    "Bu = 0.43\n",
+    "Bd = 0.43\n",
+    "Bs = 0.098\n",
+    "Bc = 0.0004\n",
+    "Dd = 0.43\n",
+    "\n",
+    "tot_Bu = tot_Z * Z_bb * 2 * Bu\n",
+    "print(\"Bu: %.1e\" % tot_Bu)\n",
+    "\n",
+    "tot_Bd = tot_Z * Z_bb * 2 * Bd\n",
+    "print(\"Bd: %.1e\" % tot_Bd)\n",
+    "\n",
+    "tot_Bs = tot_Z * Z_bb * 2 * Bs\n",
+    "print(\"Bu: %.1e\" % tot_Bs)\n",
+    "\n",
+    "tot_Bc = tot_Z * Z_bb * 2 * Bc\n",
+    "print(\"Bc: %.1e\" % tot_Bc)\n",
+    "\n",
+    "tot_tau = tot_Z * Z_tautau * 2\n",
+    "print(\"Bu: %.1e\" % tot_tau)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
